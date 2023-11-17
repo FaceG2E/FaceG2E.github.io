@@ -55,11 +55,11 @@
     <div class="highlight-clean" style="padding-bottom: 10px;">
         
         <div class="container" style="max-width: 1024px;">
-            <h1 class="text-center"><b>EfficientDreamer</b>: High-Fidelity and Robust 3D Creation via Orthogonal-view Diffusion Prior</h1>
+            <h1 class="text-center">Text-Guided 3D Face Synthesis - From Generation to Editing</h1>
         </div>
         <div class="container" style="max-width: 1024px;">
            <p id="authors" class="text-center">
-                <a style="font-size:24px; "> Arxiv 2023 </a>
+                <a style="font-size:24px; "> Anonymous author </a>
            </p>
 
            <!-- <p id="authors" class="text-center">
@@ -115,7 +115,7 @@
     </div>
 
     <div class="container" style="max-width: 1024px;">
-        <img class="summary-img" src="figs/teaser_v5.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/teaser.png" style="width:100%;"> <br>
     </div>
     
     <hr class="divider" />
@@ -127,14 +127,13 @@
                 <h2>Abstract</h2>
                 <p>
                     <!-- <strong> -->
-                        While the image diffusion model has made significant strides in text-driven 3D content creation, it often falls short in accurately capturing the intended meaning of the text prompt, particularly with respect to direction information. This shortcoming gives rise to the Janus problem, where multi-faced 3D models are produced with the guidance of such diffusion models. In this paper, we present a robust pipeline for generating high-fidelity 3D content with orthogonal-view image guidance. Specifically, we introduce a novel 2D diffusion model that generates an image consisting of four orthogonal-view sub-images for the given text prompt. The 3D content is then created with this diffusion model, which enhances 3D consistency and provides strong structured semantic priors. This addresses the infamous Janus problem and significantly promotes generation efficiency. Additionally, we employ a progressive 3D synthesis strategy that results in substantial improvement in the quality of the created 3D contents. Both quantitative and qualitative evaluations show that our method demonstrates a significant improvement over previous text-to-3D techniques.
-                    <!-- </strong> -->
+                    Text-guided 3D face synthesis has achieved remarkable results by leveraging text-to-image (T2I) diffusion models. However, most existing works focus solely on the direct generation, ignoring the editing of the faces, restricting them from synthesizing customized 3D faces through iterative editing. In this paper, we propose a unified text-guided framework from face generation to editing. In the generation stage, we propose a geometry-texture decoupled generation to mitigate the loss of geometric details caused by coupling. Besides, decoupling enables us to utilize the generated geometry as a condition for texture generation, yielding highly geometry-texture aligned results. We further employ a fine-tuned texture diffusion model to enhance texture quality in both RGB and YUV space. In the editing stage, we first employ a pre-trained diffusion model to update facial geometry or texture based on the texts. To enable sequential editing, we introduce a UV domain consistency preservation regularization, preventing unintentional changes to irrelevant facial attributes. Besides, we propose a self-guided consistency weight strategy to improve editing efficacy while preserving consistency. Through comprehensive experiments and comparisons with existing methods, we showcase our method's superiority in face synthesis.                    <!-- </strong> -->
                 </p>
             </div>
         </div>
     <!-- </div> -->
 
-        <img class="summary-img" src="figs/pipeline_v5.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/overview.png" style="width:100%;"> <br>
 
     </div>
     
@@ -165,8 +164,8 @@
     <div class="container" style="max-width: 1024px;">
         <div class="row">
             <div class="col">
-                <h2>Example generated objects</h2>
-                <p>EfficientDreamer generates objects and scenes from diverse captions.</p>
+                <h2>Example generated faces</h2>
+                <p>FaceG2E generates high-fidelity facial geometry and texture from diverse captions.</p>
             </div>
         </div>
 
@@ -174,29 +173,29 @@
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/19_ours.mp4" type="video/mp4"></source>
+                        <source src="generation/1-Caucasian teenager girl, thin eyebrows, pink lipstick_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex1Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">A squirrel, animated movie character, high detail 3d model.</h6>
+                <h6 class="caption">Caucasian teenager girl, thin eyebrows, pink lipstick</h6>
             </div>
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex2" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/10_ours.mp4" type="video/mp4"></source>
+                        <source src="generation/2_Elderly Asian man, gray beard, deep winkles_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex2Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">A DSLR photo of a yellow duck.</h6>
+                <h6 class="caption">Elderly Asian man, gray beard, deep winkles.</h6>
             </div>
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex3" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/15_ours.mp4" type="video/mp4"></source>
+                        <source src="generation/21-a teenager boy, asian, yellow skin, round face_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex3Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">A pig wearing a backpack, high quality.</h6>
+                <h6 class="caption">A teenager boy, asian, yellow skin, round face.</h6>
             </div>
 
             
@@ -206,34 +205,68 @@
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex4" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/1_crop.mp4" type="video/mp4"></source>
+                        <source src="generation/5-a zoomed out DSLR photo of Neteyam in Avatar_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex4Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">Test now.</h6>
+                <h6 class="caption">Neteyam in Avatar.</h6>
             </div>
 
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex5" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/6_crop.mp4" type="video/mp4"></source>
+                        <source src="generation/6-a zoomed out DSLR photo of Thanos in the Marvel_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex5Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">Mr Bean Cartoon doing a T Pose.</h6>
+                <h6 class="caption">Thanos in the Marvel.</h6>
             </div>
 
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
                     <video class="video lazy" id="ex6" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="normals/7_crop.mp4" type="video/mp4"></source>
+                        <source src="generation/2-kratos_.mp4" type="video/mp4"></source>
                     </video>
                     <canvas height="752" class="videoMerge" id="ex6Merge" width="1002"></canvas>
                 </div>
-                <h6 class="caption">A motorcycle, scifi, high detail, high quality.</h6>
+                <h6 class="caption">Kratos in the God of War.</h6>
             </div>
         </div>
     </div>
+
+    <div class="row captioned_videos">
+        <div class="col">
+            <div class="video-compare-container" style="width: 100%">
+                <video class="video lazy" id="ex4" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                    <source src="generation/9-Scarlett Johansson_.mp4" type="video/mp4"></source>
+                </video>
+                <canvas height="752" class="videoMerge" id="ex4Merge" width="1002"></canvas>
+            </div>
+            <h6 class="caption">Scarlett Johansson.</h6>
+        </div>
+
+        <div class="col">
+            <div class="video-compare-container" style="width: 100%">
+                <video class="video lazy" id="ex5" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                    <source src="generation/10-cate blanchett_.mp4" type="video/mp4"></source>
+                </video>
+                <canvas height="752" class="videoMerge" id="ex5Merge" width="1002"></canvas>
+            </div>
+            <h6 class="caption">Cate Blanchett.</h6>
+        </div>
+
+        <div class="col">
+            <div class="video-compare-container" style="width: 100%">
+                <video class="video lazy" id="ex6" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                    <source src="generation/13-Tom Cruise_.mp4" type="video/mp4"></source>
+                </video>
+                <canvas height="752" class="videoMerge" id="ex6Merge" width="1002"></canvas>
+            </div>
+            <h6 class="caption">Tom Cruise.</h6>
+        </div>
+    </div>
+</div>
+
 
     <!-- <hr class="divider" /> -->
     <div class="container" style="max-width: 1024px;">
