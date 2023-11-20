@@ -114,18 +114,18 @@
         </div> -->
     </div>
 
-    <div class="container" style="max-width: 1024px;">
-        <img class="summary-img" src="figs/teaser.png" style="width:100%;"> <br>
+    <div class="container" style="max-width: 1024px;text-align: center;">
+        <img class="summary-img" src="figs/teaser.png" style="width:60%; "> <br>
     </div>
     
     <hr class="divider" />
-    <div class="container" style="max-width: 1024px;">
+    <div class="container" style="max-width: 1024px; text-align: center;">
         
         
         <div class="row">
             <div class="col-md-12">
                 <h2>Abstract</h2>
-                <p>
+                <p class="text-align-justify">
                     <!-- <strong> -->
                     Text-guided 3D face synthesis has achieved remarkable results by leveraging text-to-image (T2I) diffusion models. However, most existing works focus solely on the direct generation, ignoring the editing of the faces, restricting them from synthesizing customized 3D faces through iterative editing. In this paper, we propose a unified text-guided framework from face generation to editing. In the generation stage, we propose a geometry-texture decoupled generation to mitigate the loss of geometric details caused by coupling. Besides, decoupling enables us to utilize the generated geometry as a condition for texture generation, yielding highly geometry-texture aligned results. We further employ a fine-tuned texture diffusion model to enhance texture quality in both RGB and YUV space. In the editing stage, we first employ a pre-trained diffusion model to update facial geometry or texture based on the texts. To enable sequential editing, we introduce a UV domain consistency preservation regularization, preventing unintentional changes to irrelevant facial attributes. Besides, we propose a self-guided consistency weight strategy to improve editing efficacy while preserving consistency. Through comprehensive experiments and comparisons with existing methods, we showcase our method's superiority in face synthesis.                    <!-- </strong> -->
                 </p>
@@ -133,7 +133,7 @@
         </div>
     <!-- </div> -->
 
-        <img class="summary-img" src="figs/overview.png" style="width:100%;"> <br>
+        <img class="summary-img" src="figs/overview.png" style="width:60%;"> <br>
 
     </div>
     
@@ -266,7 +266,89 @@
     </div>
 
 
+    <div class="container" style="max-width: 1024px;">
+        <div class="row">
+            <div class="col">
+                <h2>Example edited faces</h2>
+                <p>FaceG2E enables high-fidelity, fine-grained 3D face editing following diverse instructions.</p>
+            </div>
+        </div>
 
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex10" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/3-1.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex10Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">Anne Hathaway</p> <b>Editing:</b> <p style="color: #048b04;">Turn her a man</p></h6>
+            </div>
+        </div>   
+
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex11" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/4-B.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex11Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">Benedict Cumberbatch</p> <b>Editing:</b> <p style="color: #048b04;">Turn him a woman</p></h6>
+
+                <h6 class="caption"><b>Generation prompt:</b> Benedict Cumberbatch. <b>Editing instruction:</b> Turn her a man</h6>
+            </div>
+        </div>   
+
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex12" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/comparison-1a.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex12Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">Emma Watson</p> <b>Editing:</b> <p style="color: #048b04;">Let her wear a Geisha makeup</p></h6>
+            </div>
+        </div>   
+
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex13" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/8-S.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex13Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">Spider-man</p> <b>Editing:</b> <p style="color: #048b04;">Make him chubby</p></h6>
+            </div>
+        </div>   
+
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex14" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/7-J.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex14Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">The Joker</p> <b>Editing:</b> <p style="color: #048b04;">Make his eyemask blue</p></h6>
+            </div>
+        </div>   
+
+        <div class="row captioned_videos">
+            <div class="col">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex15" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source src="editing/comparison-3a.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex15Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption"><b>Generation:</b> <p style="color: rgb(132, 0, 255);">Deadpool</p> <b>Editing:</b> <p style="color: #048b04;">Make his eyemask made of gold</p></h6>
+            </div>
+        </div>   
+
+    </div>
 
     <!-- <hr class="divider" /> -->
     <!-- <div class="container" style="max-width: 1024px;">
@@ -332,15 +414,13 @@
         <div class="row captioned_videos"></div>
         <div>
             <video  width="100%" loop autoplay muted>
-                <source src="relighting/concat-relighting.mp4" type="video/mp4">
+                <source src="relighting/musk-relighting.mp4" type="video/mp4">
             </video>
-            <p class="text-center"><em>Jason Statham & Cate Blanchett </em>  </p>           
+            <p class="text-center"><em>Asian, bald Elon Musk with mustache</em>  </p>           
         </div>
 
 
     </div>
-
-
     
     <hr class="divider" />
 
