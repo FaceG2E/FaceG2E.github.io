@@ -42,9 +42,19 @@
 
     <script src="assets/js/video_comparison.js"></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+
+    <style>
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+        }
+    </style>
+
 </head>
 
 <body>
+
+
+
     <!-- <div class="banner">
       <video class="video lazy"
           poster="https://dreamfusion-cdn.ajayj.com/sept28/banner_1x6_customhue_A.jpg"
@@ -160,7 +170,16 @@
         </div>
     </div>
 
-    <hr class="divider" />
+
+
+    <button onclick="toggleDropdown('dropdown')">Display examples</button>
+
+    <div id="dropdown" class="dropdown-content">
+        <hr class="divider" />
+
+    </div>
+
+
     <div class="container" style="max-width: 1024px;">
         <div class="row">
             <div class="col">
@@ -168,17 +187,17 @@
                 <p>FaceG2E generates high-fidelity facial geometry and texture from diverse captions.</p>
             </div>
         </div>
-
+        
         <div class="row captioned_videos">
-            <div class="col">
-                <div class="video-compare-container" style="width: 100%">
-                    <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
-                        <source src="generation/9-Scarlett Johansson_.mp4" type="video/mp4"></source>
-                    </video>
-                    <canvas height="752" class="videoMerge" id="ex1Merge" width="1002"></canvas>
+                <div class="col">
+                    <div class="video-compare-container" style="width: 100%">
+                        <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                            <source src="generation/9-Scarlett Johansson_.mp4" type="video/mp4"></source>
+                        </video>
+                        <canvas height="752" class="videoMerge" id="ex1Merge" width="1002"></canvas>
+                    </div>
+                    <h6 class="caption">Scarlett Johansson.</h6>
                 </div>
-                <h6 class="caption">Scarlett Johansson.</h6>
-            </div>
     
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
@@ -200,7 +219,6 @@
                 <h6 class="caption">Tom Cruise.</h6>
             </div>
         </div>
-      
         <div class="row captioned_videos">
             <div class="col">
                 <div class="video-compare-container" style="width: 100%">
@@ -620,15 +638,14 @@
     <hr class="divider" />
     <div class="container" style="max-width: 1024px;">
         <div class="row">
-            <div class="col" margin-bottom: 100px;>
+            <div class="col" style="margin-bottom: 30px;">
                 <h2>Comparison with other methods</h2>
-                <p>We present comparisons on both 3D face generation and editing.</p>
             </div>
         </div>
 
-        
+
         <div>
-            <div margin-bottom: 100px;>
+            <div style="margin-bottom: 30px;">
                 <h5 class='caption' style="text-align: center;color: #992323; margin: 0; "> Generation & Single-round Editing</h5>
             </div>
         </div>
@@ -669,22 +686,71 @@
             </div>
             <div margin-bottom: 20px;>
                 <video  width="100%" loop autoplay muted>
-                    <source src="comparison/comparison-test1.mp4" type="video/mp4">
+                    <source src="comparison/comparison-1.mp4" type="video/mp4">
                 </video>
             </div>
             <div margin-bottom: 20px;>
                 <video  width="100%" loop autoplay muted>
-                    <source src="comparison/comparison-test2.mp4" type="video/mp4">
+                    <source src="comparison/comparison-2.mp4" type="video/mp4">
                 </video>
             </div>
             <div margin-bottom: 20px;>
                 <video  width="100%" loop autoplay muted>
-                    <source src="comparison/comparison-test3.mp4" type="video/mp4">
+                    <source src="comparison/comparison-3.mp4" type="video/mp4">
                 </video>
             </div>
             <div margin-bottom: 20px;>
                 <video  width="100%" loop autoplay muted>
-                    <source src="comparison/comparison-test4.mp4" type="video/mp4">
+                    <source src="comparison/comparison-4.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+
+        <div>
+            <div style="margin-bottom: 30px; margin-top: 60px">
+                <h5 class='caption' style="text-align: center;color: #992323; margin: 0; "> Generation & Sequential Editing</h5>
+            </div>
+        </div>
+
+
+        
+        <div class="row">
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b>Dreamfusion</b>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b>AvatarCraft</b>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b>Describe3D</b>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b>TADA</b>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b>Ours</b>
+                    </div>
+                </div>
+                <div class="col">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+            <div margin-bottom: 20px;>
+                <video  width="100%" loop autoplay muted>
+                    <source src="comparison/comparison-sequential.mp4" type="video/mp4">
                 </video>
             </div>
         </div>

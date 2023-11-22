@@ -1,5 +1,14 @@
 'use strict';
 
+function toggleDropdown(ID) {
+    var dropdownContent = document.getElementById(ID);
+    if (dropdownContent.style.display === "none") {
+        dropdownContent.style.display = "block"; // 显示下拉内容
+    } else {
+        dropdownContent.style.display = "none"; // 隐藏下拉内容
+    }
+}
+
 (function() {
     // Format video selector for compositional prompts.
     let captions = [];
